@@ -45,11 +45,11 @@ const Login = ({ history }) => {
   return (
     <div style={{ padding: 50 }}>
       <Card sx={{ backgroundColor: "lightgray" }} className="login-container">
-        <div style={{ width: "50%" }}>
+        <div style={{ width: "50%", height: '150%' }}>
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQcmrXJy8NiZnwe2qfBEg44NS96_1cvgwcjQ&usqp=CAU"
             alt="login-background"
-            style={{ height: "100%", width: "100%" }}
+            style={{ height: 700, width: "100%" }}
           />
         </div>
         <div
@@ -61,7 +61,7 @@ const Login = ({ history }) => {
           <h1>Login</h1>
           <form onSubmit={(e) => e.preventDefault()}>
             <div>
-              <h2 className="headers">Email address</h2>
+              <h2 className="headers" style={{ marginTop: 50}}>Email Address</h2>
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
@@ -69,16 +69,18 @@ const Login = ({ history }) => {
                 id="name-input"
                 placeholder="Enter your email"
                 className="input-box"
+                style={{ marginTop: 3}}
               />
             </div>
             <div>
-              <h2 className="headers">Password</h2>
+              <h2 className="headers" style={{ marginTop: 30}}>Password</h2>
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type={show ? "text" : "password"}
                 name="pass"
                 id="pass-input"
                 placeholder="Enter your password"
+                style={{ marginTop: 3}}
                 className="input-box"
               />
               <div>

@@ -1,10 +1,10 @@
 import express from "express"
-import { createRide } from "../controllers/ride";
-import { requestRide } from "../controllers/ride";
+import { acceptRide, createRide, getAllRides } from "../controllers/ride";
 
 const router = express.Router();
 
 router.post('/create-ride', createRide)
-router.post('/request-ride', requestRide);
+router.post('/accept-ride', acceptRide);
+router.get('/get-all-rides', getAllRides);
 
 module.exports = router;

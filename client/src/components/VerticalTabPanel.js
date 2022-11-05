@@ -49,8 +49,22 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: "75%", padding: 5, marginRight: 0 }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box
+      sx={{
+        width: "100%",
+        padding: 5,
+        marginRight: 0,
+        display: "flex",
+      }}
+    >
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          width: "100%",
+          display: "flex",
+        }}
+      >
         <Tabs
           value={value}
           orientation="vertical"
@@ -63,18 +77,20 @@ export default function BasicTabs() {
           <Tab label="Map" {...a11yProps(3)} />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
-        <UpcomingRides />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <PastRides />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <RequestingRides />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <Map />
-      </TabPanel>
+      <div style={{ width: "450%" }}>
+        <TabPanel value={value} index={0}>
+          <UpcomingRides />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <PastRides />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <RequestingRides />
+        </TabPanel>
+        <TabPanel value={value} index={3}>
+          <Map />
+        </TabPanel>
+      </div>
     </Box>
   );
 }
