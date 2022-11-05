@@ -1,0 +1,40 @@
+.button {
+  background: rgba(25, 68, 0, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-color: transparent;
+  border-radius: 42px;
+  color: white;
+  text-transform: inherit;
+  font-family: "Poppins";
+  transition: all ease-in-out 0.25s;
+}
+
+.button:hover {
+  color: rgba(25, 68, 0, 0.6);
+  background-color: lightgray;
+}
+
+.ridesContainer {
+  display: flex;
+  align-items: center;
+  width: 90vw;
+  height: 100vh;
+}
+
+.driverLeft {
+  border: 1px solid black;
+  border-radius: 10px;
+  /* flex: 1; */
+  height: 100%;
+  width: 20%;
+  text-align: center;
+  background-color: white;
+}
+
+.driverWelcome {
+  margin-top: 2vh;
+}
+
+.moneyDriver {
+  margin-top: 35vh;
+}
