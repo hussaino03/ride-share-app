@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-google-autocomplete": "^2.7.0",
+    "react-type-animation": "^2.1.2"
+  }
+}

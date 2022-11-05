@@ -51,10 +51,9 @@ export default function BasicTabs() {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "150%",
         padding: 5,
         marginRight: 0,
-        display: "flex",
       }}
     >
       <Box
@@ -67,7 +66,6 @@ export default function BasicTabs() {
       >
         <Tabs
           value={value}
-          orientation="vertical"
           onChange={handleChange}
           aria-label="basic tabs example"
         >
@@ -77,7 +75,7 @@ export default function BasicTabs() {
           <Tab label="Map" {...a11yProps(3)} />
         </Tabs>
       </Box>
-      <div style={{ width: "450%" }}>
+      <div style={{ width: "175%" }}>
         <TabPanel value={value} index={0}>
           <UpcomingRides />
         </TabPanel>
