@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import UpcomingRides from "./UpcomingRides";
 import PastRides from "./PastRides";
 import RequestingRides from "./RequestingRides.js";
-// import Map from "./Map";
+import Map from "./Map";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -73,8 +73,7 @@ export default function BasicTabs() {
         <RequestingRides />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        {/* <Map /> */}
-        map
+        <Map />
       </TabPanel>
     </Box>
   );

@@ -12,7 +12,7 @@ const Passenger = () => {
   const [toDestination,setToDestination]=useState("");
   const[age,setAge]=useState(18);
   const handleSubmit=()=>{
-    alert("{fromDestination},{toDestination},{age}");
+    alert({fromDestination}+" "+{toDestination}+" "+{age});
   }
   return (
     
