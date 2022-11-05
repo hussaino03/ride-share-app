@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "./Login.css";
 import Card from "@mui/material/Card";
 import { register } from "../actions/auth";
 
@@ -29,19 +29,25 @@ const Register = ({ history }) => {
   };
 
   return (
-    <div className="login-container">
-      <Card>
-        <div>
+    <div style={{ padding: 50 }}>
+      <Card sx={{ backgroundColor: "lightgray" }} className="login-container">
+        <div style={{ width: "50%", height: '150%' }}>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQcmrXJy8NiZnwe2qfBEg44NS96_1cvgwcjQ&usqp=CAU"
+            src="https://c4.wallpaperflare.com/wallpaper/997/551/665/photography-modern-building-skyscraper-wallpaper-preview.jpg"
             alt="login-background"
+            style={{ height: 700, width: "100%" }}
           />
         </div>
-        <div>
-          <h1>Login</h1>
+        <div
+          style={{
+            marginLeft: 20,
+            marginTop: 20,
+          }}
+        >
+          <h1 className="typing">Join ReNew!</h1>
           <form onSubmit={(e) => e.preventDefault()}>
             <div>
-              <h2>Email address</h2>
+              <h2 className="headers" style={{ marginTop: 50}}>Email Address</h2>
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
@@ -51,7 +57,7 @@ const Register = ({ history }) => {
               />
             </div>
             <div>
-              <h2>Name</h2>
+              <h2 className="headers" style={{ marginTop: 30}}>Name</h2>
               <input
                 onChange={(e) => setName(e.target.value)}
                 type="name"
@@ -59,19 +65,29 @@ const Register = ({ history }) => {
                 id="name-input"
                 placeholder="Enter your name"
               />
-            </div>
-            <div>
-              <h2>Password</h2>
-              <input
+              <div>
+                <div>
+                <h2 className="headers" style={{ marginTop: 30}}>Password</h2>
+                <input
                 onChange={(e) => setPassword(e.target.value)}
                 type={show ? "text" : "password"}
                 name="pass"
                 id="pass-input"
                 placeholder="Enter your password"
               />
-
-              <h1 onClick={togglePasswordVisibility}>Show Password</h1>
-              <button onClick={handleSubmit}>Submit</button>
+                <i
+                  style={{ cursor: "pointer", padding: "18px"}}
+                  onClick={togglePasswordVisibility}
+                >
+                  Show Password
+                </i>
+              </div>
+              <div>
+                <button onClick={handleSubmit} className="submit-button">
+                  Submit
+                </button>
+              </div>
+            </div>
             </div>
           </form>
         </div>

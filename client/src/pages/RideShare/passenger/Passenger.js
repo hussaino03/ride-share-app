@@ -7,6 +7,8 @@ import VerticalTabPanel from "../../../components/VerticalTabPanel";
 import { TypeAnimation } from 'react-type-animation';
 import AddressInput from '../../../components/AddressInput'
 import "./Passenger.css";
+import { usePlacesWidget } from "react-google-autocomplete";
+import {ToAddressInput, FromAddressInput } from '../../../components/AddressInput'
 
 {/* <TypeAnimation
     // Same String at the start will only be typed once, initially
@@ -27,12 +29,24 @@ import "./Passenger.css";
   /> */}
   
 const Passenger = () => {
+
+  
+
+  // const { ref2, autocompleteRef2 } = usePlacesWidget({
+  //   apiKey:'AIzaSyC29cXScND5E-qFq8PFc0yblvl-ZL5JGh8',
+  //   onPlaceSelected: (place) => {
+  //     console.log(place);
+  //   }
+  // });
   const { auth } = useSelector((state) => ({ ...state }));
   const [fromDestination, setFromDestination] = useState("");
   const [toDestination, setToDestination] = useState("");
   const [age, setAge] = useState(18);
-  const handleSubmit = () => {
-    alert({ fromDestination } + " " + { toDestination } + " " + { age });
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    alert("UIH")
+    console.log("TO", toDestination)
+    console.log("FROM", fromDestination)
   };
   return (
     <>
@@ -43,7 +57,7 @@ const Passenger = () => {
 
       <div className="passenger">
         <div className="passengerLeft">
-        <div class="fade-in-text">
+        <div className="fade-in-text">
     
 
           <h1 style={{ fontSize: 30, marginLeft: 10, marginTop: 10 }}>
@@ -53,25 +67,40 @@ const Passenger = () => {
           <h2 style={{ fontSize: 24, marginLeft: 10 }}>{auth?.user?.name}</h2>
 
           <div style={{ marginTop: 40 }}>
-            <form onSubmit={(e) => e.preventDefault()}>
-              <div>
-                <h1 style={{ fontSize: 24 }}>From destination</h1>
-                <input
-                  onChange={(e) => setFromDestination(e.target.value)}
-                  placeholder="From"
-                  type="location"
-                />
 
-              </div>
               <div>
-                <h1 style={{ fontSize: 24 }}>To destination</h1>
+                {/* <h1 style={{ fontSize: 24 }}>From destination</h1>
                 <input
                   onChange={(e) => setToDestination(e.target.value)}
                   placeholder="To"
                   type="location"
-                />
+                  ref={ref}
+                /> */}
 
               </div>
+              <div>
+                <h1 style={{ fontSize: 24 }}>Starting Address</h1>
+                {/* <input
+                  onChange={(e) => setToDestination(e.target.value)}
+                  placeholder="From"
+                  type="location"
+                  ref={ref}
+                /> */}
+
+                <FromAddressInput fD={fromDestination} setFD={setFromDestination}  />
+
+
+
+ <h1 style={{ fontSize: 24 }}>Ending Address</h1>
+                {/* <input
+                  onChange={(e) => setToDestination(e.target.value)}
+                  placeholder="To"
+                  type="location"
+                  ref={ref2}
+                /> */}
+                <ToAddressInput tD={toDestination} setTD={setToDestination} />
+
+              </div><form onSubmit={handleSubmit}>
               <div>
                 <h1 style={{ fontSize: 24 }}>Age</h1>
                 <input
@@ -83,6 +112,7 @@ const Passenger = () => {
               <button onClick={handleSubmit} className="submitButton">
                 Submit
               </button>
+
             </form>
           </div>
         </div>
@@ -90,7 +120,8 @@ const Passenger = () => {
 
       <div className="d-flex" style={{ justifyContent: 'space-between'}}>
           {/* <VerticalTabPanel /> */}
-          <AddressInput/>
+
+          {/* From: {fromDestination} */}
       </div>
       </div>
       </>

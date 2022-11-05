@@ -1,14 +1,14 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Flex,
-  HStack,
-  IconButton,
-  Input,
-  SkeletonText,
-  Text,
-} from "@chakra-ui/react";
+// import {
+//   Box,
+//   Button,
+//   ButtonGroup,
+//   Flex,
+//   HStack,
+//   IconButton,
+//   Input,
+//   SkeletonText,
+//   Text,
+// } from "@chakra-ui/react";
 import { FaLocationArrow, FaTimes } from "react-icons/fa";
 
 import {
