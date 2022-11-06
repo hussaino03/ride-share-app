@@ -22,14 +22,14 @@ const columns = [
     width: 120,
   },
   {
-    field: "Starting Point",
+    field: "startingPoint",
     headerName: "Starting Point",
     description: "This column gives you start address",
     
     width: 250,
   },
   {
-    field: "Ending Point",
+    field: "endingPoint",
     headerName: "Ending Point",
     description: "This column gives you end address",
     
@@ -38,8 +38,7 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, name: "Vishesh", age: 14, price: "$4.00" },
-  { id: 2, name: "Arnab", age: 21, price: "$3.00" },
+  { id: 1, name: "Vishesh", age: 14, price: "$4.00", startingPoint: "California High School, Broadmoor Drive, San Ramon, CA, USA", endingPoint: "San Francisco, CA, USA" },
 ];
 
 const UpcomingRides = () => {

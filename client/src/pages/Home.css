@@ -1,8 +1,8 @@
 
-
 .H-button{
     height:50px;
     width:150px;
+    overflow-y: hidden;
 }
 
 .Hm-about{
@@ -11,43 +11,56 @@
     display: flex;
     flex-direction: row;
     width:100%;
+    overflow-y: hidden;
 }
 .Hm-about-content{
     width: 50% !important;
+    overflow-y: hidden;
 }
 .H-content{
-    +6display: flex;
+    display: flex;
     flex-direction: row;
-    background-color: #1f2937;
+    background-color: #080031;
     height:60vh;
-    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 .wrapper{
     display: flex;
+    overflow-y: hidden;
 }
 .wrapper div{
     width:25%;
     height:400px;
     background-color: lightgray;
     margin:10px;
+    overflow-y: hidden;
 }
 .Hm-content{
     margin-top: 70px;
+    overflow-y: hidden;
     
-    width:90vh;
+    text-align:left !important;
     color:white;
+    padding-left: 50px;
 }
 .H-image{
     height:200px;
     width: 100%;
+    overflow-y: hidden;
 }
 .Hm-heading{
     font-size: 64px;
+    overflow-y: hidden !important;
 
     }
 .Hm-p{
     margin-top: 70px;
     font-size: 40px;
+    overflow-y: hidden;
+}
+.containeruse{
+    overflow-x: hidden !important;
 }
 
 /* 
@@ -84,7 +97,25 @@ nav .navbar ul li a {
 
 * End Navbar * */
 
-.header {
-    border: 1px solid black;   
-    margin-right: auto; 
+
+
+.signUp-btn2 {
+    background-color: #137000;
+    color: white;
+    border-color: white;
+    transition: all 0.5s ease-in;
+    border-radius: 999px;
+    width: 150px;
+    height: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.signUp-btn2:hover {
+    color: white;
+    background-color: #1ca101;
+}
+.signUp-btn2:focus {
+    color: white;
+    background-color: #137000;
+
 }

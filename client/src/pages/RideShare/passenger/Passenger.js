@@ -82,7 +82,8 @@ const Passenger = ({ history }) => {
       window.location.href = res.data;
     } catch (err) {
       // toast.error("Stripe connect failed. Please try again.");
-      setLoading(false);
+      // setLoading(false);
+      console.log(err)
     }
   };
   const handleSubmit = async (e) => {
@@ -132,7 +133,7 @@ const Passenger = ({ history }) => {
                   ref={ref}
                 /> */}
             </div>
-            <div>
+           <div>
               <h1 style={{ fontSize: 18, marginBottom: 20 }}>
                 Starting Address
               </h1>

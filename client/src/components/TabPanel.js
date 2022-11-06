@@ -59,7 +59,7 @@ export default function BasicTabs() {
           <Tab label="Current Rides" {...a11yProps(0)} />
           <Tab label="Past Rides" {...a11yProps(1)} />
           <Tab label="Requested Rides" {...a11yProps(2)} />
-          <Tab label="Map" {...a11yProps(3)} />
+          {/* <Tab label="Map" {...a11yProps(3)} /> */}
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -70,10 +70,6 @@ export default function BasicTabs() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <RequestingRides />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        {/* <Map /> */}
-        map
       </TabPanel>
     </Box>
   );

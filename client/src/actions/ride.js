@@ -11,6 +11,6 @@ export const getRide = async (rideId) => {
 
 
 export const getSuggestedRides = async (driverId) => {
-  const res = await axios.get(`http://localhost:8080/api/get-suggested-ride` + driverId);
+  const res = await axios.get(`http://localhost:8080/api/get-suggested-ride/` + driverId);
   return res;
 }

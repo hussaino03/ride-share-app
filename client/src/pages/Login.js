@@ -54,6 +54,7 @@ const Login = ({ history }) => {
           style={{
             marginLeft: 20,
             marginTop: 20,
+            width: "50%"
           }}
         >
           <h1 className="typing">Efficient, Free of Cost, Beneficial!</h1>
@@ -92,11 +93,11 @@ const Login = ({ history }) => {
             </div>
           </form>
         </div>
-        <div style={{ width: "50%", height: '150%' }}>
+        <div style={{ width: "50%", height: '100%' }}>
           <img
             src="https://c4.wallpaperflare.com/wallpaper/642/688/6/buildings-skyscrapers-bw-night-hd-worm-s-view-grayscale-photography-wallpaper-preview.jpg"
             alt="login-background"
-            style={{ height: 700, width: "100%", marginLeft: "30%"}}
+            style={{ height: 700, width: "100%", marginLeft: "auto"}}
           />
         </div>
       </Card>

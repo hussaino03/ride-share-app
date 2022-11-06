@@ -9,6 +9,7 @@ import Passenger from "./pages/RideShare/passenger/Passenger";
 import PrivateRoute from "./components/PrivateRoute";
 import Header from "./components/Header";
 import Dummy from "./components/Dummy";
+import StripeCallback from './pages/StripeCallback'
 
 // import Map from "./components/Map";
 
@@ -20,10 +21,15 @@ function App() {
         <PrivateRoute exact path="/driver" component={Driver} />
         <PrivateRoute exact path="/passenger" component={Passenger} />
         {/* <PrivateRoute exact path='/map' component={Map} /> */}
+        <PrivateRoute
+          exact
+          path="/stripe/callback"
+          component={StripeCallback}
+        />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/dummy" component={Dummy} />
+        <Route exact path="/budget" component={Dummy} />
       </Switch>
     </BrowserRouter>
   );

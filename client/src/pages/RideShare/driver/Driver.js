@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./Driver.css";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -26,17 +26,19 @@ import {
   FromAddressInput,
 } from "../../../components/AddressInput";
 import {driverAddress} from '../../../actions/auth'
-
+import {getAccountBalance, currencyFormatter, payoutSetting } from '../../../actions/stripe'
 const Driver = () => {
   const { auth } = useSelector((state) => ({ ...state }));
   const [to, setTo] = useState(null)
+  const [balance, setBalance] = useState(0.00);
   const [from, setFrom] = useState(null)
   const [starting, setStarting] = useState(null)
   const [ending, setEnding] = useState(null)
 
-  const email = auth.user.email
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const email = auth.user.email
     try {
       let res = await driverAddress({ to, from, email})
 
@@ -52,6 +54,27 @@ const Driver = () => {
       console.log(err)
     }
   }
+
+  const handlePayoutSettings = async () => {
+
+    try {
+      const res = await payoutSetting(auth.token);
+      console.log("RES FOR PAYOUT SETTING LINK", res);
+      window.location.href = res.data.url;
+    } catch (err) {
+      console.log(err);
+      // toast.error("Unable to access settings. Please try again.");
+    }
+  };
+
+
+  useEffect(() => {
+    getAccountBalance(auth.token).then((res) => {
+      // console.log(res.data)
+      setBalance(res.data);
+    });
+  }, []);
+
   return (
     <div className="ridesContainer">
       <div className="driverLeft">
@@ -66,7 +89,7 @@ const Driver = () => {
                 Set Your Locations
               </h3>
 
-              <h5 style={{ fontSize: 15, marginBottom: 20 }}>This is so that we can suggest you passengers on your route, to make life easier.</h5>
+              <h5 style={{ fontSize: 15}}>This is so that we can suggest you passengers on your route, to make life easier.</h5>
               {/* <input
                   onChange={(e) => setToDestination(e.target.value)}
                   placeholder="From"
@@ -86,15 +109,21 @@ const Driver = () => {
                   type="location"
                   ref={ref2}
                 /> */}
-              <div style={{marginTop: 20}}>
+              <div style={{marginTop: 20,}}>
                 <ToAddressInput tD={to} setTD={setTo} />
               </div>
 
               <button className="submit-button" style={{ marginTop: 10}} onClick={handleSubmit}>Submit</button>
             </div>
         <div className="moneyDriver">
-          <h5>Money Balance: $0.00</h5>
-          <button className="button">Collect Payouts</button>
+        {balance &&
+                  balance.pending &&
+                  balance.pending.map((bp, i) => (
+                    <h5 key={i} className="lead">
+                      Balance: {currencyFormatter(bp)}
+                    </h5>
+                  ))}
+          <button className="button" onClick={handlePayoutSettings}>Collect Payouts</button>
         </div>
       </div>
       <TabPanel />

@@ -63,6 +63,7 @@ const Register = ({ history }) => {
             style={{
               marginLeft: 20,
               marginTop: 20,
+              width: '50%'
             }}
           >
             <h1 className="typing">Efficient, Free of Cost, Beneficial!</h1>

@@ -11,7 +11,7 @@ const Header = () => {
     <>
       <div className="header">
         <div className="header_left">
-          <img src="/ReNewLogo.png" className='logo-img' />
+          <img src="https://o.remove.bg/downloads/ec74a525-ff61-46e0-9e45-0e5646838504/unknown-removebg-preview.png" className='logo-img' />
         </div>
         <div className="pages">
           <NavMenu>

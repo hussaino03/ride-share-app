@@ -1,5 +1,5 @@
 import User from "../models/user";
-import service from "../models/service";
+import Ride from "../models/ride";
 import Stripe from "stripe";
 import queryString from "query-string";
 
@@ -7,10 +7,10 @@ import queryString from "query-string";
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
 export const createConnectAccount = async (req, res) => {
-  console.log(req);
+  // console.log(req);
   const user = await User.findById(req.auth._id).exec();
   // console.log(user)
-  console.log("STRIPE ---->", user.stripe_account_id);
+  // console.log("STRIPE ---->", user.stripe_account_id);
 
   if (user.stripe_account_id == "" || !user.stripe_account_id) {
     const account = await stripe.accounts.create({
@@ -19,7 +19,7 @@ export const createConnectAccount = async (req, res) => {
 
     // console.log("ACCOUNT", account);
     user.stripe_account_id = account.id;
-    console.log(user.stripe_account_id);
+    // console.log(user.stripe_account_id);
     user.save();
     // console.log("STRIPE ---->", user.stripe_account_id);
   }
@@ -109,10 +109,10 @@ export const payoutSetting = async (req, res) => {
 };
 
 export const stripeSessionId = async (req, res) => {
-  // console.log('session id', req.body.serviceId)
-  const { serviceId } = req.body;
+  // console.log('session id', req.body.rideId)
+  const { rideId } = req.body;
 
-  const item = await service.findById(serviceId).populate("postedBy").exec();
+  const item = await ride.findById(rideId).populate("postedBy").exec();
   console.log(item)
   const fee = (item.price * 20) / 100;
 

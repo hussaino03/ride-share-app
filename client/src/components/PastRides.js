@@ -54,7 +54,7 @@ const PastRides = () => {
     const id = auth.user.
     console.log("Past Rides -> ", id);
     try {
-    let res = await getSuggestedRides({id})
+    let res = await getSuggestedRides(id)
 
     if (res.data) {
       console.log("LOADDD--->", res.data)

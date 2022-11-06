@@ -1,20 +1,25 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
 // import Variant from "../assets/variant.png";
 import "./Home.css";
 
-const Home = () => {
+
+const Home = ({ history }) => {
   return (
     <>
-      <section className="header">
+    <div className="containeruse">
+      <section style={{paddingLeft:"10px", marginRight: "1vh"}}>
         <div>
           <div className="H-content">
             <div className="Hm-content">
-              <h1 classname="Hm-heading">Hello</h1>
-              <p className="Hm-p">Lorem Ipsum</p>
-              <button className="H-button">Signup</button>
+              <h1 classname="Hm-heading">ReNew</h1>
+              <p className="Hm-p">Ride-Share Made Efficient</p>
+              <button onClick={() => history.push("/register")}
+              className="signUp-btn2">
+                Join Us</button>
             </div>
-            <img src='' alt="Hero-image" classname="H-image" style={{width:"100%"}} />
+            <img src='https://o.remove.bg/downloads/473e5f45-24b5-4b6e-bc55-026437762a52/3-horizontes-inovacao-2-removebg-preview.png' alt="Hero-image" classname="H-image" style={{width:"65%", paddingLeft:"90px", marginLeft:"70px"}} />
           </div>
           <hr />
           <div>
@@ -24,50 +29,25 @@ const Home = () => {
               </h1>
             </div>
             <div className="Hm-about">
-              <div className="Hm-about-content">
-                <p>Lorem</p>
+              <div className="Hm-about-content" style={{fontSize: "18px"}}>
+                <p>An app that allows the user to calculate their trip budget, and also displays a customized dashboard for the driver and passenger. A passenger is prompted to enter their details such as location, and a map gets displayed which shows the total distance and other features for ease of accessibility. Moreover, the driver dashboard is there to make the process of collecting payments more efficient and easy. The driver can simply login to their account and see the passengers they currently need to pick-up or see the total fares as well.<br></br><br></br>The app can display the required information for both the passenger and driver with a simple click, while also giving them more utilities such as budget planning. </p>
               </div>
-              <img src="" alt="image" style={{ marginLeft: 30 }}></img>
+              <img src="https://www.signiflow.com/wp-content/uploads/2021/08/SigniFlow-Procurement-Portfolios-500-800.png" alt="image" style={{ marginLeft: 30 }}></img>
             </div>
           </div>
           <hr />
-          <div style={{ backgroundColor: "#1f2937", color: "white" }}>
-            <h1 style={{ fontSize: 60, marginLeft: 20 }}>
+          <div style={{ backgroundColor: "#080031", color: "white" }}>
+            <h1 style={{ fontSize: 40, marginLeft: 20 }}>
               <i>Inspiration</i>
             </h1>
-            <h2 style={{ fontSize: 45, paddingTop: 40, paddingBottom: 40 }}>
-              <i>
-                <center>"Even dead I am the hero"</center>
+            <h2 style={{ fontSize: 35, paddingTop: 40, paddingBottom: 40 }}>
+              <i style={{overflowX:"hidden"}}>
+                <center>"Efficiency is doing things right; effectiveness is doing the right things"</center>
               </i>
             </h2>
           </div>
 
           <hr />
-          <div style={{ paddingBottom: 40 }}>
-            <div className="wrapper">
-              <div>
-                <img src="" alt="computer-picture" />
-              </div>
-              <div>
-                <h1>
-                  <center>Step1</center>
-                </h1>
-                <p>lorem ipsum</p>
-              </div>
-              <div>
-                <h1>
-                  <center>Step2</center>
-                </h1>
-                <p>lorem ipsum</p>
-              </div>
-              <div>
-                <h1>
-                  <center>Step1</center>
-                </h1>
-                <p>lorem ipsum</p>
-              </div>
-            </div>
-          </div>
         </div>
         <hr />
 
@@ -86,6 +66,7 @@ const Home = () => {
             </div>
         </div> */}
       </section>
+      </div>
     </>
   );
 };

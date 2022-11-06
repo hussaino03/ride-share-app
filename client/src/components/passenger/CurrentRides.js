@@ -7,45 +7,46 @@ const CurrentRides = ({ tD, fD}) => {
 
   const [rideState, setRideState] = useState("");
   const [rideDetails, setRideDetails] = useState({});
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("auth"));
-    const userId = items.user._id;
+  // useEffect(() => {
+  //   const items = JSON.parse(localStorage.getItem("auth"));
 
-    async function fetchUser() {
-      let user = await getUser(userId);
-      user = user.data;
-      console.log("Fetch user: " , user);
-      if(!user.rideId){
-        console.log("No ride");
-        setRideState("noRide");
-        return;
-      }
+  //   async function fetchUser() {
+  //     let user = await getUser(userId);
+  //     user = user.data;
+  //     console.log("Fetch user: " , user);
+  //     if(!user.rideId){
+  //       console.log("No ride");
+  //       setRideState("noRide");
+  //       return;
+  //     }
 
-      let ride = await getRide(user.rideId.toString());
-      console.log("Ride details ", ride);
-      setRideDetails(ride.data);
+  //     let ride = await getRide(user.rideId);
+  //     console.log("Ride details ", ride.data);
+  //     setRideDetails(ride.data);
 
-      if(!ride.data.driverId){
-        setRideState("waiting");
-        return;
-      }
+  //     if(!ride?.data?.driverId){
+  //       setRideState("waiting");
+  //       return;
+  //     }
       
-      setRideState("confirmed");
+  //     setRideState("confirmed");
      
       
-    }
-    fetchUser();
-  }, []);
+  //   }
+  //   setTimeout(() => {
+  //     // fetchUser();
+  //   }, 5000);
+
+  // }, []);
 
   return (
-    rideState == "noRide" || rideDetails.passengerStartingAddress == null ||
-    rideDetails.passengerStartingAddress == "" ||
-    rideDetails.passengerEndingAddress == null ||
-    rideDetails.passengerEndingAddress == "" ? (<div><h3>No ride currently</h3></div>) : 
+    rideState == "noRide" ? <div><h3>No ride currently</h3></div> 
+: 
     rideState == "waiting" ? (
         <div>
           <h3>Waiting for driver</h3>
-          <Map tD={rideDetails.passengerStartingAddress} fD={rideDetails.passengerEndingAddress} />
+          <Map tD={tD} fD={fD} />
+
         </div>
     ) : 
     rideState == "confirmed" ? (
@@ -54,7 +55,8 @@ const CurrentRides = ({ tD, fD}) => {
       </div>
     ) : (
       <div>
-        Loading...
+          {tD !== null && fD !== null && <Map tD={tD} fD={fD} />  }
+
       </div>
 
     )

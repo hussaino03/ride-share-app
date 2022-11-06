@@ -1,8 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
+import {getSuggestedRides} from '../actions/ride'
 import { Button } from "@mui/material";
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
+import {useSelector} from 'react-redux'
 
 const columns = [
   {
@@ -72,9 +74,32 @@ const rows = [
 
 const RequestingRides = () => {
 
+  const { auth } = useSelector((state) => ({ ...state }));
+  const [rides, setRides] = useState([])
+
   useEffect(() => {
-    // let res = getRide({ "" })
+    loadSuggestedRides()
   }, [])
+
+  const loadSuggestedRides = async () => {
+    const id = auth.user._id
+    const items = JSON.parse(localStorage.getItem("auth"));
+    const userId = items.user._id;
+    console.log("Suggested Rides -> ", id);
+    try {
+    let res = await getSuggestedRides(id)
+
+    if (res.data) {
+      console.log("LOADDD--->", res.data)
+    }
+
+    setRides(res.data)
+
+    } catch (err) {
+      console.log(err)
+    }
+
+  }
   
   return (
     <Box sx={{ height: 400, width: "100%" }}>
