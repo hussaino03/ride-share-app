@@ -60,19 +60,21 @@ const Register = ({ history }) => {
           <h3 style={{textAlign: 'left'}}>Join ReNew!</h3>
           <form onSubmit={(e) => e.preventDefault()}>
             <div>
-            <TextField id="outlined-basic" label="Enter Name" variant="outlined" style={{ marginTop: 40}}
+            <TextField id="outlined-basic" label="Enter Name" variant="outlined" style={{ marginTop: 30}}
                 onChange={(e) => setName(e.target.value)}
                 type="name"
                 name="name"
+                className="input-box"
                 placeholder="Enter your name"
               />
             </div>
             <div>
-            <TextField id="outlined-basic" label="Enter Email" variant="outlined" style={{ marginTop: 30}}
+            <TextField id="outlined-basic" label="Enter Email" variant="outlined" style={{ marginTop: 40}}
 
               onChange={(e) => setEmail(e.target.value)}
                 type="email"
               name="name"
+              className="input-box"
               placeholder="Enter your email"
               />
               <div>
