@@ -1,15 +1,62 @@
-
+*{
+    margin-left:0;
+}
+.H-button{
+    height:50px;
+    width:150px;
+}
 .container {
     margin: 0 ;
     background-color: #1f2937;
     width: 100%;
 
 }
-
-.header {
+.Hm-about{
+    margin-top: 80px;
+    font-size:32px;
+    display: flex;
+    flex-direction: row;
+    width:100%;
+}
+.Hm-about-content{
+    width: 50% !important;;
+}
+.H-content{
+    display: flex;
+    flex-direction: row;
     background-color: #1f2937;
+    width:1500px;
+    height:60vh;
+}
+.wrapper{
+    display: flex;
+}
+.wrapper div{
+    width:25%;
+    height:400px;
+    background-color: lightgray;
+    margin:10px;
+}
+.Hm-content{
+    margin-top: 70px;
+    margin-left: 30vh;
+    width:40vh;
+    color:white;
+}
+.H-image{
+    height:200px;
+    width: 200px;
+}
+.Hm-heading{
+    font-size: 64px;
+
+    }
+.Hm-p{
+    margin-top: 70px;
+    font-size: 40px;
 }
 
+/* 
 nav {
     display: flex;
     align-items: center;
@@ -41,53 +88,8 @@ nav .navbar ul li a {
     color: #e5e7eb;
 }
 
-/** End Navbar **/
+* End Navbar * */
 
-.hero {
-    height:40vh;
-    width:100vh;
-    padding: 100px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.hero .hero-content  {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.hero .hero-content .hero-header {
-    font-size: 48px;
-    font-weight: bold;
-    color: #f9faf8;
-}
-
-.hero .hero-content .hero-desc {
-    font-size: 20px;
-    color: #f9faf8;
-    margin: 15px 0;
-}
-
-.hero .hero-img {
-    flex: 1;
-}
-
-.hero .hero-img img {
-    width: 100%;
-}
-
-.hero .hero-content .btn {
-    display: block;
-    padding: 10px 30px;
-    border-radius: 5px;
-    border: none;
-    background-color: #3882f6;
-    color: #f9faf8;
-    font-size: 18px;
-    font-weight: 300;
-    text-transform: uppercase;
+.header {
+    
 }
