@@ -76,10 +76,25 @@ export const makeDriver = async (req, res) => {
 
     user.isDriver = true;
     await user.save();
+
+    res.json({
+      driver: true
+    });
   } catch(err) {
     console.log("MAKE_DRIVER ERROR", err);
     res.status(400).send("Failed to assign driver role");
   }
 };
+
+export const getUser = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const user = await User.findOne({_id : id}).exec();
+    res.json(user);
+  }catch(err){
+    console.log("GET_USER ERROR", err);
+    res.status(400).send("Failed to fetch user details");
+  }
+}
 
 

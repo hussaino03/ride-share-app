@@ -45,7 +45,7 @@ export const acceptRide = async (req, res) => {
   }
 }
 
-export const getAllRides = async (req , res) => {
+export const getAllDriverRides = async (req , res) => {
   try{
     const rides = await Ride.find({}).exec();
     return res.json(rides);
@@ -54,3 +54,25 @@ export const getAllRides = async (req , res) => {
     res.status(400).send("Failed to fetch ride");
   }
 }
+
+export const getAllPassengerRides = async (req , res) => {
+  try{
+    const rides = await Ride.find({}).exec();
+    return res.json(rides);
+  } catch(err){
+    console.log("FETCH_RIDES ERROR", err);
+    res.status(400).send("Failed to fetch ride");
+  }
+}
+
+
+export const getSuggestedRides = async (req, res) => {
+  try {
+    const rides = await User.find({})
+  } catch (err) {
+    console.log("FETCH SUGGESTED RIDES ERROR", err);
+    res.status(400).send("Failed to fetch suggested rides");
+  }
+}
+
+

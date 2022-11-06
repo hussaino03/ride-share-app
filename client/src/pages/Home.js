@@ -5,7 +5,26 @@ const Home = () => {
   return(
   <>        
       <section class="header">
-        <div class="container">
+        <div>
+            <div>
+                <div>
+                    <h1>Hello</h1>
+                    <p>Lorem Ipsum</p>
+                </div>
+                <img src="" alt="Hero-image"/>
+            </div>
+            <div>
+                <div></div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+        {/* <div class="container">
             <div class="hero">
                 <div class="hero-content">
                     <div class="hero-header">This is website is awesome</div>
@@ -18,7 +37,7 @@ const Home = () => {
                     <img src="https://images.unsplash.com/photo-1661956602944-249bcd04b63f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt=""/>
                 </div>
             </div>
-        </div>
+        </div> */}
     </section>
    </>
   );

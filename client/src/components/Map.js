@@ -18,11 +18,37 @@ import {
   Autocomplete,
   DirectionsRenderer,
 } from "@react-google-maps/api";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const center = { lat: 48.8584, lng: 2.2945 };
 
-function Map() {
+function Map({ tD, fD }) {
+  const [to, setTo] = useState("");
+  const [from, setFrom] = useState("");
+  useEffect(() => {
+    // const text = "hi, hello, ui";
+    const tDRes = tD.replaceAll(",", "");
+    const tDResult = tDRes.replaceAll(" ", "+");
+    console.log(tDResult);
+    setTo(tDResult);
+
+    const tFRes = fD.replaceAll(",", "");
+    const fDResult = tFRes.replaceAll(" ", "+");
+    console.log(fDResult);
+    setFrom(fDResult);
+    //const text="hi,hello,ui"
+    // const result=text.replaceAll(","," ")//
+    // const res=result.replaceAll(" ","+")
+    // 'hi+hello+ui'
+    // > console.log(res)
+    // step 1 - result: hi hello ui
+    // step 2 - result: hi+hello+ui
+    // tD (toDestination)
+    // fD (fromDestination)
+    // *******
+    //  1. remove commas 2. replace spaces with +
+    // console.log(text)
+  }, []);
   //   const { isLoaded } = useJsApiLoader({
   //     googleMapsApiKey: "AIzaSyAZLsIumwNVZXD1iaZha9mdc-JoiL3khCE",
   //     libraries: ["places"],
@@ -149,10 +175,9 @@ function Map() {
       loading="lazy"
       allowfullscreen
       referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyAZLsIumwNVZXD1iaZha9mdc-JoiL3khCE
-    &origin=41+Canyon+Green+Court
-    &waypoints=Livermore
-    &destination=San+Francisco"
+      src={`https://www.google.com/maps/embed/v1/directions?key=AIzaSyAZLsIumwNVZXD1iaZha9mdc-JoiL3khCE
+    &origin=${from}
+    &destination=${to}`}
     ></iframe>
   );
 }

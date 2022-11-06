@@ -1,17 +1,6 @@
-.padding-lr {
-    padding: 40px 30px;
-}
-
-.padding-lg {
-    padding: 60px 40px;
-}
-
-.padding-tb {
-    padding: 50px 0;
-}
 
 .container {
-    margin: 0 auto;
+    margin: 0 ;
     background-color: #1f2937;
     width: 100%;
 
@@ -55,6 +44,8 @@ nav .navbar ul li a {
 /** End Navbar **/
 
 .hero {
+    height:40vh;
+    width:100vh;
     padding: 100px 0;
     display: flex;
     align-items: center;

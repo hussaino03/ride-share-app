@@ -7,11 +7,10 @@ import Box from "@mui/material/Box";
 import UpcomingRides from "./UpcomingRides";
 import RequestingRides from "./RequestingRides.js";
 import CurrentRides from "./passenger/CurrentRides";
-import PastRides from './passenger/PastRides'
+import PastRides from "./passenger/PastRides";
 import Map from "./Map";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -42,7 +41,7 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function BasicTabs({ tD, fD }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -52,7 +51,7 @@ export default function BasicTabs() {
   return (
     <Box
       sx={{
-        width: "150%",
+        width: "350%",
         padding: 5,
         marginRight: 0,
       }}
@@ -61,7 +60,7 @@ export default function BasicTabs() {
         sx={{
           borderBottom: 1,
           borderColor: "divider",
-          width: "100%",
+          width: "155%",
           display: "flex",
         }}
       >
@@ -72,11 +71,14 @@ export default function BasicTabs() {
         >
           <Tab label="Current Rides" {...a11yProps(0)} />
           <Tab label="Past Rides" {...a11yProps(1)} />
-          {/* <Tab label="Requested Rides" {...a11yProps(2)} /> */}
-          {/* <Tab label="Map" {...a11yProps(3)} /> */}
+          {/* <Tab label="Become a Driver" {...a11yProps(2)} /> */}
+          {tD !== null &&
+            tD !== "" &&
+            fD !== null &&
+            fD !== "" && <Tab label="Map" {...a11yProps(3)} />}
         </Tabs>
       </Box>
-      <div style={{ width: "175%" }}>
+      <div style={{ width: "600px" }}>
         <TabPanel value={value} index={0}>
           <CurrentRides />
         </TabPanel>
@@ -84,10 +86,7 @@ export default function BasicTabs() {
           <PastRides />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <RequestingRides />
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          <Map />
+          <Map tD={tD} fD={fD} />
         </TabPanel>
       </div>
     </Box>

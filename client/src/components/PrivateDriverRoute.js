@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const PrivateDriverRoute = ({ ...rest }) => {
   const { auth } = useSelector((state) => ({ ...state }));
 
-  return auth && !auth?.user.isDriver ? <Route {...rest} /> : <Redirect to="/passenger" />;
+  return auth && auth?.driver ? <Route {...rest} /> : <Redirect to="/passenger" />;
 };
 
 export default PrivateDriverRoute;
