@@ -5,8 +5,9 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import UpcomingRides from "./UpcomingRides";
-import PastRides from "./PastRides";
 import RequestingRides from "./RequestingRides.js";
+import CurrentRides from "./passenger/CurrentRides";
+import PastRides from './passenger/PastRides'
 import Map from "./Map";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -71,13 +72,13 @@ export default function BasicTabs() {
         >
           <Tab label="Current Rides" {...a11yProps(0)} />
           <Tab label="Past Rides" {...a11yProps(1)} />
-          <Tab label="Requested Rides" {...a11yProps(2)} />
-          <Tab label="Map" {...a11yProps(3)} />
+          {/* <Tab label="Requested Rides" {...a11yProps(2)} /> */}
+          {/* <Tab label="Map" {...a11yProps(3)} /> */}
         </Tabs>
       </Box>
       <div style={{ width: "175%" }}>
         <TabPanel value={value} index={0}>
-          <UpcomingRides />
+          <CurrentRides />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <PastRides />

@@ -32,7 +32,7 @@ const Driver = () => {
           style={{ marginTop: 10, width: 200 }}
         />
         <h1 className="driverWelcome">Welcome</h1>
-        <h1>{auth?.user?.name}</h1>
+        <h1 style={{fontSize:20}}>{auth?.user?.name}</h1>
 
         <div className="moneyDriver">
           <h5>Money Balance: $0.00</h5>
@@ -41,6 +41,7 @@ const Driver = () => {
       </div>
       <TabPanel />
     </div>
+
   );
 };
 

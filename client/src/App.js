@@ -7,11 +7,13 @@ import Driver from "./pages/RideShare/driver/Driver";
 import PrivateDriverRoute from "./components/PrivateDriverRoute";
 import Passenger from "./pages/RideShare/passenger/Passenger";
 import PrivateRoute from "./components/PrivateRoute";
+import Header from './components/Header'
 // import Map from "./components/Map";
 
 function App() {
   return (
     <BrowserRouter>
+    <Header />
       <Switch>
         <PrivateDriverRoute exact path="/driver" component={Driver} />
         <PrivateRoute exact path="/passenger" component={Passenger} />

@@ -48,11 +48,6 @@ const Login = ({ history }) => {
 
   return (
     <>
-    <nav className="navbar bg-dark" style={{height: "90px"}}>
-  <div className="container-fluid">
-    <div className="text-light" style={{fontSize: "40px"}}>ReNew</div>
-  </div>
-</nav>
     <div style={{ padding: 50 }}>
       <Card sx={{ backgroundColor: "lightgray" }} className="login-container">
         <div

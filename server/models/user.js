@@ -18,6 +18,7 @@ const userSchema = new Schema(
     stripe_seller: {},
     stripeSession: {},
     isDriver: { type: Boolean, default: false },
+    hasDriver: {type: Boolean, default: false}
   },
   { timestamps: true }
 );

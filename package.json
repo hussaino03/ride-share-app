@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@mapbox/search-js-react": "^1.0.0-beta.13",
     "react-google-autocomplete": "^2.7.0",
     "react-type-animation": "^2.1.2"
   }

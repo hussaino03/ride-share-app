@@ -87,7 +87,7 @@ const Passenger = () => {
                   ref={ref}
                 /> */}
 
-                <FromAddressInput fD={fromDestination} setFD={setFromDestination}  />
+                <FromAddressInput fD={fromDestination} setFD={setFromDestination}   />
 
 
 

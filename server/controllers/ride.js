@@ -5,6 +5,9 @@ export const createRide = async (req, res) => {
   try {
     const { passengerId, startLocation, endLocation, age } = req.body;
     let passenger = await User.findOne({ _id: passengerId }).exec();
+    if (!passenger) return res.status(400).send("No account with that email");
+    
+    passenger.isDriver = true;
 
     const ride = new Ride({
       passengerId: passengerId,
@@ -13,6 +16,8 @@ export const createRide = async (req, res) => {
       passengerStartingAddress: startLocation,
       passengerEndingAddress: endLocation,
     });
+
+    await passenger.save();
     await ride.save();
 
     return res.json({ done: true });

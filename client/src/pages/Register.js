@@ -34,13 +34,6 @@ const Register = ({ history }) => {
 
   return (
     <>
-      <nav className="navbar bg-dark" style={{height: "90px"}}>
-  <div className="container-fluid">
-    <div className="text-light" style={{fontSize: "40px"}}>ReNew</div>
-    <Link className="text-light" style={{fontSize: "22px", textAlign: "right"}} to="./Login">Sign-in</Link>
-
-  </div>
-</nav>
     <div style={{ padding: 50 }}>
       <Card sx={{ backgroundColor: "lightgray" }} className="login-container">
         <div style={{ width: "50%", height: '150%' }}>
@@ -85,6 +78,7 @@ const Register = ({ history }) => {
                 name="pass"
                 className="input-box"
                 placeholder="Enter your password"
+                
               />
                 <i
                   style={{ cursor: "pointer", padding: "18px", display: "flex"}}
