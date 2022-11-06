@@ -2,8 +2,7 @@
     display: flex;
     background-color: white;
     border-bottom: 0.5px solid lightgray;
-;
-    width: 100%;
+    width: 100vw;
     padding: 20px;
     z-index: 3;
     /* justify-content: space-between */

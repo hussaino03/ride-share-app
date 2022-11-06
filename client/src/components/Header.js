@@ -2,7 +2,7 @@ import "./Header.css";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import logo from '../assets/ReNewLogo.png'
+// import logo from '../public/ReNewLogo.png'
 
 const Header = () => {
   const { auth } = useSelector((state) => ({ ...state }));
@@ -11,7 +11,7 @@ const Header = () => {
     <>
       <div className="header">
         <div className="header_left">
-          <img src={logo} className='logo-img' />
+          <img src="/ReNewLogo.png" className='logo-img' />
         </div>
         <div className="pages">
           <NavMenu>
@@ -30,8 +30,8 @@ const Header = () => {
               <NavMenu>
 
                 {auth.user &&
-                auth.user.isDriver ? (
-                  <a onClick={() => history.push("/seller/dashboard")}>
+                auth.isDriver ? (
+                  <a onClick={() => history.push("/driver")}>
                     <span>Driver Dashboard</span>
                   </a>
                 ) : (

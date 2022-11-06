@@ -22,3 +22,9 @@ export const getUser = async (userId) => {
   const res = await axios.get(`http://localhost:8080/api/getUser/` + userId);
   return res;
 };
+
+
+
+export const driverAddress = async (user) =>
+  await axios.post(`http://localhost:8080/api/driver-address`, user)
+

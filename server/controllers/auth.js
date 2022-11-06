@@ -78,7 +78,15 @@ export const makeDriver = async (req, res) => {
     await user.save();
 
     res.json({
-      driver: true
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          createdAt: user.createdAt,
+          updatedAt: user.updatedAt,
+          isDriver: true,
+          stripe_account_id: user.stripe_account_id,
+          stripe_seller: user.stripe_seller,
+          stripeSession: user.stripeSession,
     });
   } catch(err) {
     console.log("MAKE_DRIVER ERROR", err);
@@ -98,3 +106,25 @@ export const getUser = async (req, res) => {
 }
 
 
+
+export const setDriverAddress = async (req, res) => {
+  
+  const {from, to, email} = req.body
+  try {
+    const user = await User.findOne({email}).exec();
+    console.log("USEEERRRR ---->", user)
+    user.driverStartingAddress = from
+    user.driverEndingAddress = to
+    console.log('HELLO', from, to)
+    await user.save();
+
+    console.log("USR 2 ---djsdijdif>", user)
+
+    res.json({
+        done: true
+    })
+  } catch (err) {
+    console.log("GET_USER ERROR", err);
+    res.status(400).send("Failed to fetch user details");
+  }
+}

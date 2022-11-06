@@ -1,5 +1,8 @@
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
+import {getSuggestedRides} from '../actions/ride'
+import { useSelector } from "react-redux";
+import {useEffect, useState} from 'react'
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
@@ -36,7 +39,35 @@ const rows = [
   { id: 1, name: "Vishesh 2", age: 14, price: "$4.00" },
   { id: 2, name: "Arnab 2", age: 21, price: "$3.00" },
 ];
+
 const PastRides = () => {
+  const { auth } = useSelector((state) => ({ ...state }));
+  const [rides, setRides] = useState([])
+
+  const id = auth.user._id
+
+  useEffect(() => {
+    loadPastRides()
+  }, [])
+
+  const loadPastRides = async () => {
+    const id = auth.user.
+    console.log("Past Rides -> ", id);
+    try {
+    let res = await getSuggestedRides({id})
+
+    if (res.data) {
+      console.log("LOADDD--->", res.data)
+    }
+
+    setRides(res.data)
+
+    } catch (err) {
+      console.log(err)
+    }
+
+  }
+
   return (
     <Box sx={{ height: 400, width: "100%" }}>
       <DataGrid

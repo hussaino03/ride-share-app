@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Variant from "../assets/variant.png";
+// import Variant from "../assets/variant.png";
 import "./Home.css";
 
 const Home = () => {
   return (
     <>
-      <section class="header">
+      <section className="header">
         <div>
           <div className="H-content">
             <div className="Hm-content">
@@ -14,7 +14,7 @@ const Home = () => {
               <p className="Hm-p">Lorem Ipsum</p>
               <button className="H-button">Signup</button>
             </div>
-            <img src={Variant} alt="Hero-image" classname="H-image" />
+            <img src='' alt="Hero-image" classname="H-image" style={{width:"100%"}} />
           </div>
           <hr />
           <div>

@@ -17,7 +17,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <PrivateDriverRoute exact path="/driver" component={Driver} />
+        <PrivateRoute exact path="/driver" component={Driver} />
         <PrivateRoute exact path="/passenger" component={Passenger} />
         {/* <PrivateRoute exact path='/map' component={Map} /> */}
         <Route exact path="/register" component={Register} />

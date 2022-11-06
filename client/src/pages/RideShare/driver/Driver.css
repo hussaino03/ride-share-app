@@ -19,6 +19,7 @@
   align-items: center;
   width: 90vw;
   height: 100vh;
+  
 }
 
 .driverLeft {
@@ -26,15 +27,19 @@
   border-radius: 10px;
   /* flex: 1; */
   height: 100%;
-  width: 20%;
-  text-align: center;
-  background-color: white;
+  width: 30%;
+  padding: 20px;
+  /* text-align: center; */
+  /* background-colo#aac6ff96996; */
 }
 
 .driverWelcome {
   margin-top: 2vh;
+  text-align: center;
 }
 
 .moneyDriver {
-  margin-top: 35vh;
+  margin-top: 3vh;
+  align-items: center;
+  text-align: center;
 }

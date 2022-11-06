@@ -72,21 +72,21 @@ export default function BasicTabs({ tD, fD }) {
           <Tab label="Current Rides" {...a11yProps(0)} />
           <Tab label="Past Rides" {...a11yProps(1)} />
           {/* <Tab label="Become a Driver" {...a11yProps(2)} /> */}
-          {tD !== null &&
+          {/* {tD !== null &&
             tD !== "" &&
             fD !== null &&
-            fD !== "" && <Tab label="Map" {...a11yProps(3)} />}
+            fD !== "" && <Tab label="Map" {...a11yProps(3)} />} */}
         </Tabs>
       </Box>
       <div style={{ width: "600px" }}>
         <TabPanel value={value} index={0}>
-          <CurrentRides />
+          <CurrentRides tD={tD} fD={fD}  />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <PastRides />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <Map tD={tD} fD={fD} />
+          {/* <Map tD={tD} fD={fD} /> */}
         </TabPanel>
       </div>
     </Box>

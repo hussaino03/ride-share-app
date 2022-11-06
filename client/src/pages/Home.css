@@ -1,16 +1,10 @@
-*{
-    margin-left:0;
-}
+
+
 .H-button{
     height:50px;
     width:150px;
 }
-.container {
-    margin: 0 ;
-    background-color: #1f2937;
-    width: 100%;
 
-}
 .Hm-about{
     margin-top: 80px;
     font-size:32px;
@@ -19,14 +13,14 @@
     width:100%;
 }
 .Hm-about-content{
-    width: 50% !important;;
+    width: 50% !important;
 }
 .H-content{
-    display: flex;
+    +6display: flex;
     flex-direction: row;
     background-color: #1f2937;
-    width:1500px;
     height:60vh;
+    width: 100vw;
 }
 .wrapper{
     display: flex;
@@ -39,13 +33,13 @@
 }
 .Hm-content{
     margin-top: 70px;
-    margin-left: 30vh;
-    width:40vh;
+    
+    width:90vh;
     color:white;
 }
 .H-image{
     height:200px;
-    width: 200px;
+    width: 100%;
 }
 .Hm-heading{
     font-size: 64px;
@@ -91,5 +85,6 @@ nav .navbar ul li a {
 * End Navbar * */
 
 .header {
-    
+    border: 1px solid black;   
+    margin-right: auto; 
 }

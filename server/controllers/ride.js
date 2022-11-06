@@ -3,23 +3,20 @@ import User from "../models/user";
 
 export const createRide = async (req, res) => {
   try {
-    const { passengerId, startLocation, endLocation, age } = req.body;
+    const { passengerId, startLocation, endLocation } = req.body;
     let passenger = await User.findOne({ _id: passengerId }).exec();
     if (!passenger) return res.status(400).send("No account with that email");
-    
-    passenger.isDriver = true;
-
+  
     const ride = new Ride({
       passengerId: passengerId,
-      passengerAge: age,
       passengerName: passenger.name,
       passengerStartingAddress: startLocation,
       passengerEndingAddress: endLocation,
     });
-
-    await passenger.save();
     await ride.save();
-
+    passenger.rideId = ride._id;
+    await passenger.save();
+    
     return res.json({ done: true });
   } catch (err) {
     console.log("CREATE_RIDE ERROR", err);
@@ -68,11 +65,29 @@ export const getAllPassengerRides = async (req , res) => {
 
 export const getSuggestedRides = async (req, res) => {
   try {
-    const rides = await User.find({})
+  const id = req.params.id;
+  console.log("ID", id)
+  const user = await User.find({ _id : id}).exec();
+  const rides = await Ride.find({ passengerEndingAddress : user.driverEndingAddress }).exec();
+  console.log(rides)
+  res.json({
+    rides: rides
+  })
   } catch (err) {
     console.log("FETCH SUGGESTED RIDES ERROR", err);
     res.status(400).send("Failed to fetch suggested rides");
   }
 }
 
+
+export const getRide = async (req, res) => {
+  const {id} = req.body
+  try {
+    const ride = await Ride.findOne({_id : id}).exec();
+    res.json(ride);
+  }catch(err){
+    console.log("GET_RIDE ERROR", err);
+    res.status(400).send("Failed to fetch ride details");
+  }
+}
 

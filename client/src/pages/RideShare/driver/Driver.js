@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Driver.css";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -21,19 +21,77 @@ import Box from "@mui/material/Box";
 // import { DataGrid } from '@mui/x-data-grid';
 import TabPanel from "../../../components/TabPanel";
 import { useSelector } from "react-redux";
+import {
+  ToAddressInput,
+  FromAddressInput,
+} from "../../../components/AddressInput";
+import {driverAddress} from '../../../actions/auth'
 
 const Driver = () => {
   const { auth } = useSelector((state) => ({ ...state }));
+  const [to, setTo] = useState(null)
+  const [from, setFrom] = useState(null)
+  const [starting, setStarting] = useState(null)
+  const [ending, setEnding] = useState(null)
+
+  const email = auth.user.email
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      let res = await driverAddress({ to, from, email})
+
+      if (res.data) {
+        console.log("RESSSS ----->", res.data)
+      }
+
+      window.localStorage.setItem("auth", JSON.stringify(res.data));
+      setStarting(res.data.driverStartingAddress)
+      setEnding(res.data.driverEndingAddress)
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <div className="ridesContainer">
       <div className="driverLeft">
         <img
           src="https://d29fhpw069ctt2.cloudfront.net/clipart/90673/preview/iOS_7_Icon_Template_preview_4ffa.png"
-          style={{ marginTop: 10, width: 200 }}
+          style={{ marginTop: 10, width: 150, alignSelf: 'center' }}
         />
-        <h1 className="driverWelcome">Welcome</h1>
-        <h1 style={{fontSize:20}}>{auth?.user?.name}</h1>
+        <h1 style={{marginTop:5}} className="driverWelcome">Welcome Driver</h1>
+        <h1 style={{fontSize:20}} className="driverWelcome">{auth?.user?.name}</h1>
+        <div>
+              <h3 style={{ marginTop: 50 }}>
+                Set Your Locations
+              </h3>
 
+              <h5 style={{ fontSize: 15, marginBottom: 20 }}>This is so that we can suggest you passengers on your route, to make life easier.</h5>
+              {/* <input
+                  onChange={(e) => setToDestination(e.target.value)}
+                  placeholder="From"
+                  type="location"
+                  ref={ref}
+                /> */}
+
+              <FromAddressInput
+                fD={from}
+                setFD={setFrom}
+              />
+
+             
+              {/* <input
+                  onChange={(e) => setToDestination(e.target.value)}
+                  placeholder="To"
+                  type="location"
+                  ref={ref2}
+                /> */}
+              <div style={{marginTop: 20}}>
+                <ToAddressInput tD={to} setTD={setTo} />
+              </div>
+
+              <button className="submit-button" style={{ marginTop: 10}} onClick={handleSubmit}>Submit</button>
+            </div>
         <div className="moneyDriver">
           <h5>Money Balance: $0.00</h5>
           <button className="button">Collect Payouts</button>

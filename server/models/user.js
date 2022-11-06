@@ -12,13 +12,19 @@ const userSchema = new Schema(
       required: "Email is required",
       unique: true,
     },
+    rideId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Ride',
+    },
     age: { type: Number },
     password: { type: String, required: true, min: 6, max: 64 },
     stripe_account_id: "",
     stripe_seller: {},
     stripeSession: {},
     isDriver: { type: Boolean, default: false },
-    hasDriver: {type: Boolean, default: false}
+    hasDriver: {type: Boolean, default: false},
+    driverStartingAddress: {type: String, default: ""},
+    driverEndingAddress: {type: String, default : ""}
   },
   { timestamps: true }
 );

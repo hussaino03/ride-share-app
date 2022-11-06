@@ -24,18 +24,23 @@ const center = { lat: 48.8584, lng: 2.2945 };
 
 function Map({ tD, fD }) {
   const [to, setTo] = useState("");
+
   const [from, setFrom] = useState("");
+
   useEffect(() => {
-    // const text = "hi, hello, ui";
     const tDRes = tD.replaceAll(",", "");
     const tDResult = tDRes.replaceAll(" ", "+");
     console.log(tDResult);
-    setTo(tDResult);
-
+    setTo(tDResult)
     const tFRes = fD.replaceAll(",", "");
     const fDResult = tFRes.replaceAll(" ", "+");
     console.log(fDResult);
     setFrom(fDResult);
+  }, [tD, fD])
+
+
+
+
     //const text="hi,hello,ui"
     // const result=text.replaceAll(","," ")//
     // const res=result.replaceAll(" ","+")
@@ -48,7 +53,6 @@ function Map({ tD, fD }) {
     // *******
     //  1. remove commas 2. replace spaces with +
     // console.log(text)
-  }, []);
   //   const { isLoaded } = useJsApiLoader({
   //     googleMapsApiKey: "AIzaSyAZLsIumwNVZXD1iaZha9mdc-JoiL3khCE",
   //     libraries: ["places"],

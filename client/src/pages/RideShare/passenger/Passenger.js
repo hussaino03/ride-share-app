@@ -4,8 +4,9 @@ import { useSelector } from "react-redux";
 import { createRide } from "../../../actions/ride";
 import { OutlinedInput } from "@mui/material";
 import VerticalTabPanel from "../../../components/VerticalTabPanel";
+import { createConnectAccount } from '../../../actions/stripe'
 // import { TypeAnimation } from 'react-type-animation';
-import AddressInput from "../../../components/AddressInput";
+
 import "./Passenger.css";
 import { usePlacesWidget } from "react-google-autocomplete";
 import {
@@ -46,31 +47,54 @@ const Passenger = ({ history }) => {
   const { user } = auth;
   const [fromDestination, setFromDestination] = useState("");
   const [toDestination, setToDestination] = useState("");
+
   const [age, setAge] = useState(18);
   const email = user?.email;
   const dispatch = useDispatch();
 
   const handleBecomeDriver = async () => {
-    try {
-      let res = await driver({ email });
+    // try {
+    //   let res = await driver({ email });
 
-      if (res.data) {
-        console.log("DATA ---->", res.data);
-        if (res.data.driver == true) {
-          dispatch({
-            type: "LOGGED_IN_USER",
-            payload: res.data,
-          });
-        }
-      }
-      history.push("/driver");
+    //   if (res.data) {
+    //     console.log("DATA ---->", res.data);
+
+        
+    //   }
+
+
+    //   dispatch({
+    //     type: "LOGGED_IN_USER",
+    //     payload: res.data,
+    //   });
+    //   window.localStorage.setItem("auth", JSON.stringify(auth));
+    //   console.log("DRIVER SHIT-----> ", auth)
+
+    //   history.push("/driver");
+    // } catch (err) {
+    //   console.log(err);
+    // }
+
+    // setLoading(true);
+    try {
+      let res = await createConnectAccount(auth.token);
+      console.log(res);
+      window.location.href = res.data;
     } catch (err) {
-      console.log(err);
+      // toast.error("Stripe connect failed. Please try again.");
+      setLoading(false);
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const items = JSON.parse(localStorage.getItem("auth"));
+    const userId = items.user._id;
+    await createRide({
+      passengerId: userId,
+      startLocation: fromDestination,
+      endLocation: toDestination,
+    });
+    window.location.reload();
   };
 
   return (
