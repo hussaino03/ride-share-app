@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "./Login.css";
 import Card from "@mui/material/Card";
+import TextField from '@mui/material/TextField';
 import { register } from "../actions/auth";
+import { Button } from "@mui/material";
+import {Link} from 'react-router-dom'
+
 
 const Register = ({ history }) => {
   const [email, setEmail] = useState(null);
@@ -29,6 +33,14 @@ const Register = ({ history }) => {
   };
 
   return (
+    <>
+      <nav className="navbar bg-dark" style={{height: "90px"}}>
+  <div className="container-fluid">
+    <div className="text-light" style={{fontSize: "40px"}}>ReNew</div>
+    <Link className="text-light" style={{fontSize: "22px", textAlign: "right"}} to="./Login">Sign-in</Link>
+
+  </div>
+</nav>
     <div style={{ padding: 50 }}>
       <Card sx={{ backgroundColor: "lightgray" }} className="login-container">
         <div style={{ width: "50%", height: '150%' }}>
@@ -44,48 +56,44 @@ const Register = ({ history }) => {
             marginTop: 20,
           }}
         >
-          <h1 className="typing">Join ReNew!</h1>
+          <h1 className="typing">Efficient, Free of Cost, Beneficial!</h1>
+          <h3 style={{textAlign: 'left'}}>Join ReNew!</h3>
           <form onSubmit={(e) => e.preventDefault()}>
             <div>
-              <h2 className="headers" style={{ marginTop: 50}}>Email Address</h2>
-              <input
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                name="name"
-                id="email-input"
-                placeholder="Enter your email"
-              />
-            </div>
-            <div>
-              <h2 className="headers" style={{ marginTop: 30}}>Name</h2>
-              <input
+            <TextField id="outlined-basic" label="Enter Name" variant="outlined" style={{ marginTop: 40}}
                 onChange={(e) => setName(e.target.value)}
                 type="name"
                 name="name"
-                id="name-input"
                 placeholder="Enter your name"
+              />
+            </div>
+            <div>
+            <TextField id="outlined-basic" label="Enter Email" variant="outlined" style={{ marginTop: 30}}
+
+              onChange={(e) => setEmail(e.target.value)}
+                type="email"
+              name="name"
+              placeholder="Enter your email"
               />
               <div>
                 <div>
-                <h2 className="headers" style={{ marginTop: 30}}>Password</h2>
-                <input
+                <TextField id="outlined-basic" label="Enter Password" variant="outlined" style={{ marginTop: 50}}
                 onChange={(e) => setPassword(e.target.value)}
                 type={show ? "text" : "password"}
                 name="pass"
-                id="pass-input"
+                className="input-box"
                 placeholder="Enter your password"
               />
                 <i
-                  style={{ cursor: "pointer", padding: "18px"}}
+                  style={{ cursor: "pointer", padding: "18px", display: "flex"}}
                   onClick={togglePasswordVisibility}
                 >
                   Show Password
                 </i>
               </div>
               <div>
-                <button onClick={handleSubmit} className="submit-button">
-                  Submit
-                </button>
+              <Button style = {{marginLeft: "5%", marginTop: "10px", width: "150px"}}onClick={handleSubmit}variant="contained">Submit</Button>
+
               </div>
             </div>
             </div>
@@ -93,6 +101,7 @@ const Register = ({ history }) => {
         </div>
       </Card>
     </div>
+    </>
   );
 };
 

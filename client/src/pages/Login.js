@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./Login.css";
 import Card from "@mui/material/Card";
+import { Button } from "@mui/material";
+import TextField from '@mui/material/TextField';
+
 import { login } from "../actions/auth";
 import { useDispatch } from "react-redux";
 
@@ -42,65 +45,68 @@ const Login = ({ history }) => {
     setShow(!show);
   };
 
+
   return (
+    <>
+    <nav className="navbar bg-dark" style={{height: "90px"}}>
+  <div className="container-fluid">
+    <div className="text-light" style={{fontSize: "40px"}}>ReNew</div>
+  </div>
+</nav>
     <div style={{ padding: 50 }}>
       <Card sx={{ backgroundColor: "lightgray" }} className="login-container">
-        <div style={{ width: "50%", height: '150%' }}>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQcmrXJy8NiZnwe2qfBEg44NS96_1cvgwcjQ&usqp=CAU"
-            alt="login-background"
-            style={{ height: 700, width: "100%" }}
-          />
-        </div>
         <div
           style={{
             marginLeft: 20,
             marginTop: 20,
           }}
         >
-          <h1>Login</h1>
+          <h1 className="typing">Efficient, Free of Cost, Beneficial!</h1>
+          <h3 style={{textAlign: 'left'}}>Already a Member? Sign-in!</h3>
           <form onSubmit={(e) => e.preventDefault()}>
             <div>
-              <h2 className="headers" style={{ marginTop: 50}}>Email Address</h2>
-              <input
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                name="name"
-                id="name-input"
-                placeholder="Enter your email"
-                className="input-box"
-                style={{ marginTop: 3}}
+              <TextField id="outlined-basic" label="Enter Email" variant="outlined" style={{ marginTop: 30}}
+
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                      name="name"
+                      placeholder="Enter your email"
+                      className="input-box"
               />
             </div>
-            <div>
-              <h2 className="headers" style={{ marginTop: 30}}>Password</h2>
-              <input
+              <TextField id="outlined-basic" label="Enter Password" variant="outlined" style={{ marginTop: 40}}
                 onChange={(e) => setPassword(e.target.value)}
                 type={show ? "text" : "password"}
                 name="pass"
-                id="pass-input"
                 placeholder="Enter your password"
-                style={{ marginTop: 3}}
                 className="input-box"
               />
               <div>
+                <div>
                 <i
-                  style={{ cursor: "pointer" }}
+                  style={{ cursor: "pointer", padding: "18px", display: "flex"}}
                   onClick={togglePasswordVisibility}
                 >
                   Show Password
                 </i>
               </div>
               <div>
-                <button onClick={handleSubmit} className="submit-button">
-                  Submit
-                </button>
+              <Button style = {{marginLeft: "5%", marginTop: "10px", width: "150px"}}onClick={handleSubmit}variant="contained">Submit</Button>
+
               </div>
             </div>
           </form>
         </div>
+        <div style={{ width: "50%", height: '150%' }}>
+          <img
+            src="https://c4.wallpaperflare.com/wallpaper/642/688/6/buildings-skyscrapers-bw-night-hd-worm-s-view-grayscale-photography-wallpaper-preview.jpg"
+            alt="login-background"
+            style={{ height: 700, width: "100%", marginLeft: "30%"}}
+          />
+        </div>
       </Card>
     </div>
+    </>
   );
 };
 

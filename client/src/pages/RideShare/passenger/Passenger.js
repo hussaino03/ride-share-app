@@ -119,7 +119,7 @@ const Passenger = () => {
         
 
       <div className="d-flex" style={{ justifyContent: 'space-between'}}>
-          {/* <VerticalTabPanel /> */}
+          <VerticalTabPanel />
 
           {/* From: {fromDestination} */}
       </div>

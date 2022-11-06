@@ -150,7 +150,7 @@ function Map() {
       allowfullscreen
       referrerpolicy="no-referrer-when-downgrade"
       src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyAZLsIumwNVZXD1iaZha9mdc-JoiL3khCE
-    &origin=San+Ramon
+    &origin=41+Canyon+Green+Court
     &waypoints=Livermore
     &destination=San+Francisco"
     ></iframe>
