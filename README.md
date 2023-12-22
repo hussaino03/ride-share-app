@@ -1,6 +1,6 @@
 ## Inspiration
 
-Efficiency is doing things right; effectiveness is doing the right things
+Efficiency is doing things right; effectiveness is doing the right things.
 
 ## What it does
 An app that allows the user to calculate their trip budget, and also displays a customized dashboard for the driver and passenger. A passenger is prompted to enter their details such as location, and a map gets displayed which shows the total distance and other features for ease of accessibility. Moreover, the driver dashboard is there to make the process of collecting payments more efficient and easy. The driver can simply login to their account and see the passengers they currently need to pick-up or see the total fares as well.
