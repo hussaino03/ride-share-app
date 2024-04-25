@@ -23,6 +23,5 @@ We learned how to work more as a team and we learnt our mistakes from each other
 We want to perfect the Budget Planner component but we were able to do the features which we had planned. We can make the Budget Planner more accurate and we can add notifications feature. We want to scale it to a mobile app as well and launch as a start up as a collective group. We hope to talk with our local newspaper to spread publicity about this to get people to use our platform
 
 ## Demo
-
 https://user-images.githubusercontent.com/67332652/200188113-6d50e905-3303-4ed6-baaa-104195d2edaa.mp4
 
