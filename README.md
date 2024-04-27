@@ -8,7 +8,7 @@ An app that allows the user to calculate their trip budget, and also displays a 
 The app can display the required information for both the passenger and driver with a simple click, while also giving them more utilities such as budget planning. 
 
 ## How we built it
-We used MERN(Mongo,Express,React,Node) for building this project.We used Google Map API and Stripe API for the payment  portal. 
+We used MERN(Mongo,Express,React,Node) for building this project.We used Google Map API and Stripe API for the payment portal. 
 
 ## Challenges we ran into
 We were new to Google Map API and we had a lot of problems figuring out the exact key features which we needed for working on the application. 
